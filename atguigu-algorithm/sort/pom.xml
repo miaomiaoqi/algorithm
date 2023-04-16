@@ -10,7 +10,6 @@
     <artifactId>sort</artifactId>
     <packaging>jar</packaging>
 
-    <name>sort</name>
     <url>http://maven.apache.org</url>
 
     <properties>

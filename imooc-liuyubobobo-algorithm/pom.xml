@@ -13,7 +13,7 @@
     <modules>
         <module>dynamicprogram</module>
         <module>lru</module>
-        <module>sort</module>
+        <module>imooc-sort</module>
         <module>loadbalance</module>
     </modules>
 

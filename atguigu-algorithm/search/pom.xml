@@ -7,9 +7,10 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>sort</artifactId>
+    <artifactId>search</artifactId>
     <packaging>jar</packaging>
 
+    <name>search</name>
     <url>http://maven.apache.org</url>
 
     <properties>

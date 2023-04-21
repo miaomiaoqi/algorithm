@@ -1,4 +1,4 @@
-package com.atguigu.search.seqsearch;
+package com.atguigu.search;
 
 /**
  * 线性查找

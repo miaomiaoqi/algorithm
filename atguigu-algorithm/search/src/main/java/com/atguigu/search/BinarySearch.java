@@ -1,4 +1,4 @@
-package com.atguigu.search.seqsearch;
+package com.atguigu.search;
 
 import java.util.ArrayList;
 import java.util.List;

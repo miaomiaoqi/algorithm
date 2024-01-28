@@ -23,14 +23,14 @@ public class MergeSort {
         // for (int i = 0; i < 8000000; i++) {
         //     arr[i] = (int) (Math.random() * 8000000); // 生成一个[0, 8000000) 数
         // }
-        // System.out.println("排序前");
+        System.out.println("排序前=" + Arrays.toString(arr));
         // Date data1 = new Date();
         // SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         // String date1Str = simpleDateFormat.format(data1);
         // System.out.println("排序前的时间是=" + date1Str);
 
         int temp[] = new int[arr.length]; //归并排序需要一个额外空间
-        mergeSort(arr, 0, arr.length - 1, temp);
+        mergeSort2(arr, 0, arr.length - 1, temp);
 
         // Date data2 = new Date();
         // String date2Str = simpleDateFormat.format(data2);
@@ -113,5 +113,48 @@ public class MergeSort {
         }
 
     }
+
+
+    public static void mergeSort2(int[] arr, int left, int right, int[] temp) {
+        if (left < right) {
+            int mid = (left + right) / 2;
+            mergeSort2(arr, left, mid, temp);
+            mergeSort2(arr, mid + 1, right, temp);
+            merge2(arr, left, mid, right, temp);
+        }
+    }
+
+    public static void merge2(int[] arr, int left, int mid, int right, int[] temp) {
+        int i = left;
+        int j = mid + 1;
+        int t = 0;
+        while (i <= mid && j <= right) {
+            if (arr[i] < arr[j]) {
+                temp[t] = arr[i];
+                t++;
+                i++;
+            } else {
+                temp[t] = arr[j];
+                t++;
+                j++;
+            }
+        }
+        while (i <= mid) {
+            temp[t] = arr[i];
+            t++;
+            i++;
+        }
+        while (j <= right) {
+            temp[t] = arr[j];
+            t++;
+            j++;
+        }
+        int tempLeft = 0;
+        for (int k = left; k <= right; k++) {
+            arr[k] = temp[tempLeft];
+            tempLeft++;
+        }
+    }
+
 
 }

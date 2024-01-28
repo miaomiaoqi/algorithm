@@ -1,7 +1,6 @@
 package com.atguigu.sort;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Arrays;
 
 /**
  * 插入排序
@@ -19,28 +18,28 @@ import java.util.Date;
 public class InsertSort {
 
     public static void main(String[] args) {
-        // int[] arr = {101, 34, 119, 1, -1, 89};
+        int[] arr = {101, 34, 119, 1, -1, 89};
         // 创建要给80000个的随机的数组
-        int[] arr = new int[80000];
-        for (int i = 0; i < 80000; i++) {
-            arr[i] = (int) (Math.random() * 8000000); // 生成一个[0, 8000000) 数
-        }
+        // int[] arr = new int[80000];
+        // for (int i = 0; i < 80000; i++) {
+        //     arr[i] = (int) (Math.random() * 8000000); // 生成一个[0, 8000000) 数
+        // }
 
         System.out.println("插入排序前");
-        // System.out.println(Arrays.toString(arr));
-        Date data1 = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String date1Str = simpleDateFormat.format(data1);
-        System.out.println("排序前的时间是=" + date1Str);
+        System.out.println(Arrays.toString(arr));
+        // Date data1 = new Date();
+        // SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        // String date1Str = simpleDateFormat.format(data1);
+        // System.out.println("排序前的时间是=" + date1Str);
 
-        insertSort(arr); //调用插入排序算法
+        insertSort2(arr); //调用插入排序算法
 
-        Date data2 = new Date();
-        String date2Str = simpleDateFormat.format(data2);
-        System.out.println("排序前的时间是=" + date2Str);
+        // Date data2 = new Date();
+        // String date2Str = simpleDateFormat.format(data2);
+        // System.out.println("排序前的时间是=" + date2Str);
 
         System.out.println("插入排序后");
-        // System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(arr));
     }
 
     public static void insertSort(int[] arr) {
@@ -56,6 +55,22 @@ public class InsertSort {
                 arr[j + 1] = arr[j];
             }
             // 因为 j-- 比较之后不合法, 所以要 +1 赋值
+            arr[j + 1] = insertVal;
+        }
+    }
+
+    public static void insertSort2(int[] arr) {
+        int insertVal = 0;
+        for (int i = 1; i < arr.length; i++) {
+            insertVal = arr[i];
+            int j;
+            for (j = i - 1; j >= 0; j--) {
+                if (arr[j] < insertVal) {
+                    arr[j + 1] = arr[j];
+                } else {
+                    break;
+                }
+            }
             arr[j + 1] = insertVal;
         }
     }

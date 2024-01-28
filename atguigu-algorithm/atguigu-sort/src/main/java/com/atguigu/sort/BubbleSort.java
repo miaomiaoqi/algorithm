@@ -1,7 +1,6 @@
 package com.atguigu.sort;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.Arrays;
 
 /**
  * 冒泡排序
@@ -43,33 +42,34 @@ import java.util.Date;
 public class BubbleSort {
 
     public static void main(String[] args) {
-        // int arr[] = {3, 9, -1, 10, 20};
+        int arr[] = {3, 9, -1, 10, 20};
 
-        // System.out.println("排序前");
-        // System.out.println(Arrays.toString(arr));
+        System.out.println("排序前");
+        System.out.println(Arrays.toString(arr));
 
 
         //测试一下冒泡排序的速度O(n^2), 给80000个数据，测试
         //创建要给80000个的随机的数组
-        int[] arr = new int[80000];
-        for (int i = 0; i < 80000; i++) {
-            arr[i] = (int) (Math.random() * 8000000); // 生成一个[0, 8000000) 数
-        }
+        // int[] arr = new int[80000];
+        // for (int i = 0; i < 80000; i++) {
+        //     arr[i] = (int) (Math.random() * 8000000); // 生成一个[0, 8000000) 数
+        // }
 
-        Date data1 = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String date1Str = simpleDateFormat.format(data1);
-        System.out.println("排序前的时间是=" + date1Str);
+        // Date data1 = new Date();
+        // SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        // String date1Str = simpleDateFormat.format(data1);
+        // System.out.println("排序前的时间是=" + date1Str);
 
         //测试冒泡排序
-        bubbleSort(arr);
+        // bubbleSort(arr);
+        bubbleSort2(arr);
 
-        Date data2 = new Date();
-        String date2Str = simpleDateFormat.format(data2);
-        System.out.println("排序后的时间是=" + date2Str);
+        // Date data2 = new Date();
+        // String date2Str = simpleDateFormat.format(data2);
+        // System.out.println("排序后的时间是=" + date2Str);
 
-        // System.out.println("排序后");
-        // System.out.println(Arrays.toString(arr));
+        System.out.println("排序后");
+        System.out.println(Arrays.toString(arr));
 
     }
 
@@ -91,6 +91,25 @@ public class BubbleSort {
             }
             if (!flag) {
                 // 如果没有进行过交换, 就代表已经有序了, 可以提前结束排序
+                break;
+            }
+        }
+    }
+
+    public static void bubbleSort2(int[] arr) {
+        int temp;
+        boolean flag = false;
+        for (int i = 0; i < arr.length - 1; i++) {
+            flag = false;
+            for (int j = 0; j < arr.length - 1 - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    flag = true;
+                }
+            }
+            if (!flag) {
                 break;
             }
         }
